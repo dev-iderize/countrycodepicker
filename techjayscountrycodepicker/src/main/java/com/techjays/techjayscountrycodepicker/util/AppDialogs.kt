@@ -3,6 +3,10 @@ package com.sj.covidradar.util
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
+import android.view.Window
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -145,7 +149,33 @@ object AppDialogs {
     }*/
 
 
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    fun showProgressDialog(context: Context) {
+        showProgressDialog(context, true)
+    }
 
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    fun showProgressDialog(context: Context, isCancelable: Boolean) {
+        hideProgressDialog()
+        progressDialog = Dialog(context)
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.dialog_progress_custom, null)
+        progressDialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        progressDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog!!.setContentView(view)
+        progressDialog!!.setCancelable(isCancelable)
+        progressDialog!!.show()
+    }
+
+    fun hideProgressDialog() {
+        try {
+            if (progressDialog != null && progressDialog!!.isShowing) {
+                progressDialog!!.dismiss()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
 
 }

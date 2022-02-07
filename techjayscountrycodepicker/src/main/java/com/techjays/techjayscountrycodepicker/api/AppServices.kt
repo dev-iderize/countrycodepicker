@@ -146,6 +146,7 @@ class AppServices {
                     return null
                 }
             }
+            response?.requestType = mHashCode.hashCode()
             return response
         }
         private fun getErrorMsg(t: Throwable, hash: Int): Response {
