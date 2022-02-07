@@ -41,14 +41,17 @@ class CountryPickerAdapter(
             image,
             holder.mBinding.loadimage
         )
-        val intent = Intent()
-        intent.action = "countryCodePicker"
-        intent.putExtra("countryName", eachListData.mName)
-        intent.putExtra("image", image)
-        intent.putExtra("countryCode", eachListData.mCountryCode)
-        intent.putExtra("countryShortCode", eachListData.mShortcode)
-        intent.flags = Intent.FLAG_INCLUDE_STOPPED_PACKAGES
-        mContext.requireActivity().sendBroadcast(intent)
+        holder.mBinding.mainLayout.setOnClickListener {
+            val intent = Intent()
+            intent.action = "countryCodePicker"
+            intent.putExtra("countryName", eachListData.mName)
+            intent.putExtra("image", image)
+            intent.putExtra("countryCode", eachListData.mCountryCode)
+            intent.putExtra("countryShortCode", eachListData.mShortcode)
+            intent.flags = Intent.FLAG_INCLUDE_STOPPED_PACKAGES
+            mContext.requireActivity().sendBroadcast(intent)
+        }
+
 
         holder.mBinding.executePendingBindings()
     }
