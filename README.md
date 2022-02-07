@@ -30,5 +30,6 @@ flag and country name
             intent.putExtra("image", image)
             intent.putExtra("countryCode", eachListData.mCountryCode)
             intent.putExtra("countryShortCode", eachListData.mShortcode)
-            
-            
+
+#Authors 
+    Techjays Android Team 07-02-2022
