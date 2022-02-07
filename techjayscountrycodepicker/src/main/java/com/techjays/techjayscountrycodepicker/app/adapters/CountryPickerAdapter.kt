@@ -50,6 +50,8 @@ class CountryPickerAdapter(
             intent.putExtra("countryShortCode", eachListData.mShortcode)
             intent.flags = Intent.FLAG_INCLUDE_STOPPED_PACKAGES
             mContext.requireActivity().sendBroadcast(intent)
+            if (mContext.dialog!!.isShowing)
+                mContext.dismiss()
         }
 
 
