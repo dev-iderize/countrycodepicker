@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Search Country</string>
+    <string name="app_name">"Country Picker "</string>
+    <string name="ok">Ok</string>
+</resources>
