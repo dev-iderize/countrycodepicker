@@ -45,21 +45,6 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
         return mContentViewBinding.root
     }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        if (dialog != null && dialog!!.isShowing) {
-            dialog!!.dismiss()
-        }
-    }
-
-    override fun getTheme(): Int {
-        return R.style.FullScreenDialog
-    }
-
     @SuppressLint("MissingSuperCall")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -73,6 +58,21 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
         mContentViewBinding.handler = CountryPickerDialogHandler(this)
         mContentViewBinding.handler!!.getCountryCode()
 
+    }
+
+    override fun getTheme(): Int {
+        return R.style.FullScreenDialog
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (dialog != null && dialog!!.isShowing) {
+            dialog!!.dismiss()
+        }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
     }
 
 

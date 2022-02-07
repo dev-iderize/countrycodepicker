@@ -1,5 +1,6 @@
 package com.techjays.techjayscountrycodepicker.app.adapters
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View

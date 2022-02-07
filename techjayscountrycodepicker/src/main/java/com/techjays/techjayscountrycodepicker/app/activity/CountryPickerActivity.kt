@@ -12,9 +12,6 @@ class CountryPickerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country_picker)
         initView()
-
-
-
     }
 
     private fun initView() {
@@ -22,7 +19,7 @@ class CountryPickerActivity : AppCompatActivity() {
         CountryCodeLibrary.instance.baseUrl = baseUrl!!
         openCountryDialog(baseUrl)
     }
-    fun openCountryDialog(url:String) {
+    private fun openCountryDialog(url:String) {
 
         val dialogFragment = CountryPickerDialog.newInstance( url)
         dialogFragment.show(
