@@ -1,5 +1,6 @@
 package com.techjays.techjayscountrycodepicker.app.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,11 +34,22 @@ class CountryPickerAdapter(
         holder.mBinding.data = eachListData
         holder.mBinding.name.text = eachListData.mName
         holder.mBinding.code.text = eachListData.mCountryCode
-
+        val image =
+            "https://force-field-dev.s3.amazonaws.com/country-flags/png_small/${eachListData.mShortcode.toLowerCase()}.png"
+        //val smallImage=mContext.getString(R.string.)
         Utility.loadUserImage(
-            "https://force-field-dev.s3.amazonaws.com/country-flags/png_small/${eachListData.mShortcode.toLowerCase()}.png",
+            image,
             holder.mBinding.loadimage
         )
+        val intent = Intent()
+        intent.action = "countryCodePicker"
+        intent.putExtra("countryName", eachListData.mName)
+        intent.putExtra("image", image)
+        intent.putExtra("countryCode", eachListData.mCountryCode)
+        intent.putExtra("countryShortCode", eachListData.mShortcode)
+        intent.flags = Intent.FLAG_INCLUDE_STOPPED_PACKAGES
+        mContext.requireActivity().sendBroadcast(intent)
+
         holder.mBinding.executePendingBindings()
     }
 

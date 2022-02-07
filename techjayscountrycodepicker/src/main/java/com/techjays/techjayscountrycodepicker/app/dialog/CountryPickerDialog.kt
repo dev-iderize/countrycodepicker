@@ -3,6 +3,7 @@ package com.techjays.techjayscountrycodepicker.app.dialog
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -66,8 +67,9 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
     }
 
     private fun init() {
-        /*  val baseUrl = "http://34.224.39.147/api/portal/"
-          CountryCodeLibrary.instance.baseUrl = baseUrl*/
+        /*  val baseUrl = "http://34.224.39.147/api/portal/"*/
+        val baseUrl = mBaseUrl
+        CountryCodeLibrary.instance.baseUrl = baseUrl
         mContentViewBinding.handler = CountryPickerDialogHandler(this)
         mContentViewBinding.handler!!.getCountryCode()
 
