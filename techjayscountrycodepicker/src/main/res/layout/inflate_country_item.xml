@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.techjays.techjayscountrycodepicker.app.models.CountryCode" />
+            type="com.techjays.techjayscountrycodepicker.app.models.CountryCode.CountryCodeData" />
 
 
         <import type="android.view.View" />
@@ -33,12 +33,14 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:text="@{data.mName}"
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@{`+`.concat(data.mName)}"
                 android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>

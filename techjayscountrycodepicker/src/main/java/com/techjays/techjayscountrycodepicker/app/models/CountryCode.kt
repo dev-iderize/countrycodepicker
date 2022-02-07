@@ -7,9 +7,9 @@ import com.techjays.techjayscountrycodepicker.api.Response
 class CountryCode : Response() {
 
     @SerializedName("data")
-    var mData = RaiseBid()
+    var mData = ArrayList<CountryCodeData>()
 
-    class RaiseBid : BaseObservable() {
+    class CountryCodeData : BaseObservable() {
 
         @SerializedName("short_code")
         var mShortcode = ""

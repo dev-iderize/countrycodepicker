@@ -13,7 +13,7 @@ import com.techjays.techjayscountrycodepicker.databinding.InflateCountryItemBind
 
 class CountryPickerAdapter(
     private val mContext: CountryPickerDialog,
-    private val mListData: ArrayList<CountryCode>
+    private val mListData: ArrayList<CountryCode.CountryCodeData>
 ) : RecyclerView.Adapter<CountryPickerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

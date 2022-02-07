@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="CountryData"
+            type="com.techjays.techjayscountrycodepicker.app.models.CountryCode" />
     </data>
 
     <LinearLayout
@@ -64,6 +66,7 @@
 
     </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/country_recyclerview"
             android:layout_marginHorizontal="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
