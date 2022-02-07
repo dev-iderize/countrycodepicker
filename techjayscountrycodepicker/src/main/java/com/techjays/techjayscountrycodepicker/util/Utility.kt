@@ -4,7 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.widget.ImageView
 import com.sj.covidradar.util.AppDialogs
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
+import com.techjays.techjayscountrycodepicker.R
+import java.io.File
 import java.text.DecimalFormat
 
 object Utility {
@@ -39,6 +45,34 @@ object Utility {
                 "Oops, No internet connection"
             )
             false
+        }
+    }
+    fun loadUserImage(aURL: String?, image: ImageView) {
+        val placeHolder = R.drawable.ic_user_placeholder
+        try {
+            if (aURL.isNullOrEmpty()) {
+                image.setImageResource(placeHolder)
+            } else {
+                if (aURL.contains("http")) {
+                    Picasso.get().load(aURL)
+                        .placeholder(placeHolder)
+                        .error(placeHolder)
+                        .fit().centerCrop()
+                        .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                        .into(image)
+                } else {
+                    Picasso.get().load(File(aURL))
+                        .placeholder(placeHolder)
+                        .error(placeHolder)
+                        .fit().centerCrop()
+                        .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                        .into(image)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

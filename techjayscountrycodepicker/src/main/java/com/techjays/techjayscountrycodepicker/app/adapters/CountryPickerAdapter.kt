@@ -10,6 +10,8 @@ import com.techjays.techjayscountrycodepicker.R
 import com.techjays.techjayscountrycodepicker.app.dialog.CountryPickerDialog
 import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 import com.techjays.techjayscountrycodepicker.databinding.InflateCountryItemBinding
+import com.techjays.techjayscountrycodepicker.util.Utility
+import okhttp3.internal.Util
 
 class CountryPickerAdapter(
     private val mContext: CountryPickerDialog,
@@ -29,6 +31,13 @@ class CountryPickerAdapter(
         val eachListData = mListData[position]
         (holder.mBinding as InflateCountryItemBinding).position = position
         holder.mBinding.data = eachListData
+        holder.mBinding.name.text = eachListData.mName
+        holder.mBinding.code.text = eachListData.mCountryCode
+
+        Utility.loadUserImage(
+            "https://force-field-dev.s3.amazonaws.com/country-flags/png_small/${eachListData.mShortcode.toLowerCase()}.png",
+            holder.mBinding.loadimage
+        )
         holder.mBinding.executePendingBindings()
     }
 

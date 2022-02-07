@@ -24,9 +24,6 @@ class AppServices {
 
         internal val APP_URL = CountryCodeLibrary.instance.baseUrl
 
-
-        //   "http://34.224.39.147/api/portal/"
-
         fun constructUrl(urlKey: String): String {
             return String.format("%s%s", APP_URL, urlKey)
         }
@@ -75,13 +72,16 @@ class AppServices {
             return retrofit as Retrofit
         }
 
-        fun getCovidData(c: Context, listener: ResponseListener) {
+        fun getCountryData(c: Context, listener: ResponseListener) {
             try {
                 val apiService = getClient().create(ApiInterface::class.java)
                 val mHashCode = API.getcountrycode
                 val mURL = API.constructUrl(mHashCode)
-                val call = apiService.GET(mURL)
+                val mParam = HashMap<String, String>()
+                mParam["format"] = "json"
+                val call = apiService.GET(mURL, mParam)
                 initService(c, call, CountryCode::class.java, mHashCode, listener)
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -106,10 +106,11 @@ class AppServices {
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    // listener.onResponse(getErrorMsg(t, mHashCode.hashCode()))
+                    listener.onResponse(getErrorMsg(t, mHashCode.hashCode()))
                 }
             })
         }
+
 
         private fun getResponse(
             context: Context,
@@ -123,7 +124,6 @@ class AppServices {
                 okHttpClient?.dispatcher()?.cancelAll()
                 return null
             }
-
             if (mResponse.isSuccessful) {
                 val body = mResponse.body()?.string()!!
                 Log.d("success", body)
@@ -147,6 +147,16 @@ class AppServices {
                 }
             }
             return response
+        }
+        private fun getErrorMsg(t: Throwable, hash: Int): Response {
+            val r = Response()
+            r.responseStatus = false
+            r.responseMessage = t.message!!
+            r.requestType = hash
+
+            Log.d("failure", t.message!!)
+
+            return r
         }
     }
 }

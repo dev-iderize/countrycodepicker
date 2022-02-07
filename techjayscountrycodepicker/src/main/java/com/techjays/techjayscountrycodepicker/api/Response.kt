@@ -3,6 +3,8 @@ package com.techjays.techjayscountrycodepicker.api
 
 import androidx.databinding.BaseObservable
 import com.google.gson.annotations.SerializedName
+import com.techjays.techjayscountrycodepicker.app.dialog.CountryPickerDialog
+import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 
 import java.io.Serializable
 

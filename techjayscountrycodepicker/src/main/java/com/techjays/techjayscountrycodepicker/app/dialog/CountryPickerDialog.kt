@@ -17,10 +17,11 @@ import com.techjays.techjayscountrycodepicker.api.Response
 import com.techjays.techjayscountrycodepicker.api.ResponseListener
 import com.techjays.techjayscountrycodepicker.app.CountryCodeLibrary
 import com.techjays.techjayscountrycodepicker.app.adapters.CountryPickerAdapter
+import com.techjays.techjayscountrycodepicker.app.handler.CountryPickerDialogHandler
 import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 import com.techjays.techjayscountrycodepicker.databinding.DialogCountrypickerBinding
 
-class CountryPickerDialog : BottomSheetDialogFragment(), ResponseListener {
+class CountryPickerDialog : BottomSheetDialogFragment() {
     companion object {
         var TAG: String = CountryPickerDialog::class.java.simpleName
         var mBaseUrl: String = ""
@@ -33,7 +34,7 @@ class CountryPickerDialog : BottomSheetDialogFragment(), ResponseListener {
         }
     }
 
-    private lateinit var mContentViewBinding: DialogCountrypickerBinding
+    lateinit var mContentViewBinding: DialogCountrypickerBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,25 +68,10 @@ class CountryPickerDialog : BottomSheetDialogFragment(), ResponseListener {
     private fun init() {
         /*  val baseUrl = "http://34.224.39.147/api/portal/"
           CountryCodeLibrary.instance.baseUrl = baseUrl*/
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    override fun onResponse(r: Response?) {
-        if (r != null) {
-            if (r.requestType == AppServices.API.getcountrycode.hashCode()) {
-                if (r.responseStatus!!) {
-                    val data = r as CountryCode
-                    val layoutManager = LinearLayoutManager(this.requireContext())
-                    mContentViewBinding.countryRecyclerview.layoutManager =
-                        LinearLayoutManager(this.requireContext())
-                    mContentViewBinding.countryData = data
-                    mContentViewBinding.countryRecyclerview.adapter = CountryPickerAdapter(
-                        this, data.mData
-                    )
-                    mContentViewBinding.countryRecyclerview.adapter?.notifyDataSetChanged()
-                }
-            }
-        }
+        mContentViewBinding.handler = CountryPickerDialogHandler(this)
+        mContentViewBinding.handler!!.getCountryCode()
 
     }
+
+
 }

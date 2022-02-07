@@ -22,26 +22,40 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:paddingVertical="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:id="@+id/loadimage"
+                android:layout_width="32dp"
+                android:scaleType="fitXY"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="28dp"
+                />
 
             <TextView
+                android:id="@+id/name"
                 android:layout_width="0dp"
+                android:gravity="center"
                 android:text="@{data.mName}"
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
 
             <TextView
+                android:id="@+id/code"
                 android:layout_width="0dp"
+                android:gravity="end|center"
                 android:layout_height="wrap_content"
-                android:text="@{`+`.concat(data.mName)}"
+                android:text="@{`+`.concat(data.mCountryCode)}"
                 android:layout_weight="1" />
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="23dp"
+            android:background="@color/app_gray_underline"
+            android:layout_height="1dp"/>
     </LinearLayout>
 </layout>

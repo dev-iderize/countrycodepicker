@@ -43,6 +43,7 @@
 
     <color name="app_transparent">#00000000</color>
     <color name="app_gray">#BDBDBD</color>
+    <color name="app_gray_underline">#CDCDCD</color>
     <color name="app_gray_light">#E0E0E0</color>
     <color name="app_gray_dark">#818181</color>
     <color name="app_green_light">#95CF85</color>
