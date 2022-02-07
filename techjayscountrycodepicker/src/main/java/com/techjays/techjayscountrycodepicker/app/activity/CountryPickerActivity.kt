@@ -25,7 +25,7 @@ class CountryPickerActivity : AppCompatActivity() {
         val dialogFragment = CountryPickerDialog.newInstance( url)
         dialogFragment.show(
             this.supportFragmentManager,
-            "Increase Dialog"
+            "Country Picker dialog"
         )
 
     }
