@@ -57,7 +57,7 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
     }
 
     override fun getTheme(): Int {
-        return R.style.BottomSheetDialog
+        return R.style.FullScreenDialog
     }
 
     @SuppressLint("MissingSuperCall")

@@ -53,7 +53,8 @@
                 android:gravity="end|center"
                 android:layout_height="wrap_content"
                 android:text="@{`+`.concat(data.mCountryCode)}"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_marginEnd="28dp"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
