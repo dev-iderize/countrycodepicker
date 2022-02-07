@@ -6,6 +6,7 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.sj.covidradar.util.AppDialogs
+import com.techjays.techjayscountrycodepicker.app.CountryCodeLibrary
 import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 import com.techjays.techjayscountrycodepicker.util.Utility
 import okhttp3.CookieJar
@@ -21,8 +22,10 @@ class AppServices {
 
     object API {
 
-        internal val APP_URL =
-            "http://34.224.39.147/api/portal/"
+        internal val APP_URL = CountryCodeLibrary.instance.baseUrl
+
+
+        //   "http://34.224.39.147/api/portal/"
 
         fun constructUrl(urlKey: String): String {
             return String.format("%s%s", APP_URL, urlKey)
