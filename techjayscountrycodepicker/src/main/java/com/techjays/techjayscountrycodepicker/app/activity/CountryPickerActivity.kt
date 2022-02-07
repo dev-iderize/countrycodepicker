@@ -13,6 +13,7 @@ class CountryPickerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_country_picker)
         initView()
 
+
     }
 
     private fun initView() {
