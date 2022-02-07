@@ -2,4 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techjays.techjayscountrycodepicker">
 
+    <application>
+        <activity
+            android:name=".app.activity.CountryPickerActivity"
+            android:exported="false" />
+    </application>
+
 </manifest>
