@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBaseURL() {
         val intent = Intent(this, CountryPickerActivity::class.java)
-        intent.putExtra("base_url","http://34.224.39.147/api/portal/")
+        intent.putExtra("base_url","https://dev.joinforcefield.com/api/portal/")
         startActivity(intent)
     }
 }
