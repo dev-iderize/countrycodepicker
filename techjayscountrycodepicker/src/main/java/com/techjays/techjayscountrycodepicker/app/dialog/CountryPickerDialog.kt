@@ -46,14 +46,14 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
     }
 
     @SuppressLint("MissingSuperCall")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         init()
     }
 
     private fun init() {
-        /*  val baseUrl = "http://34.224.39.147/api/portal/"*/
-        val baseUrl = mBaseUrl
+          val baseUrl = " https://dev.joinforcefield.com/api/portal/"
+       /* val baseUrl = mBaseUrl*/
         CountryCodeLibrary.instance.baseUrl = baseUrl
         mContentViewBinding.handler = CountryPickerDialogHandler(this)
         mContentViewBinding.handler!!.getCountryCode()

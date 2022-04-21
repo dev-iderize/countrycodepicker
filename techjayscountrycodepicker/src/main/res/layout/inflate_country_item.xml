@@ -19,7 +19,8 @@
     <LinearLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="5dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,7 +35,7 @@
                 android:scaleType="fitXY"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="28dp"
+
                 />
 
             <TextView
@@ -53,12 +54,11 @@
                 android:gravity="end|center"
                 android:layout_height="wrap_content"
                 android:text="@{`+`.concat(data.mCountryCode)}"
-                android:layout_weight="1"
-                android:layout_marginEnd="28dp"/>
+                android:layout_weight="1"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="23dp"
+            android:layout_marginHorizontal="5dp"
             android:background="@color/app_gray_underline"
             android:layout_height="1dp"/>
     </LinearLayout>
