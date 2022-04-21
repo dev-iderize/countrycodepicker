@@ -47,8 +47,9 @@ object Utility {
             false
         }
     }
+
     fun loadUserImage(aURL: String?, image: ImageView) {
-        val placeHolder = R.drawable.ic_user_placeholder
+        val placeHolder = R.drawable.download
         try {
             if (aURL.isNullOrEmpty()) {
                 image.setImageResource(placeHolder)
@@ -75,7 +76,6 @@ object Utility {
             e.printStackTrace()
         }
     }
-
 
 
 }

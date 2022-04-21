@@ -5,7 +5,7 @@
 # countrycodepicker
 
 Country code picker is used to bring up a bottom sheet dialog for picking up a country code with the
-flag and country name
+flag and country name.
 
 # for click action
 
@@ -24,7 +24,7 @@ flag and country name
 
     }
 
-# Country code along wih other details and image is broadcasted from the adapter like
+# Country code along wih other details and image is broadcast from the adapter like
 
           intent.putExtra("countryName", eachListData.mName)
             intent.putExtra("image", image)
