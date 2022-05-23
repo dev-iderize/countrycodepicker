@@ -59,16 +59,16 @@ object Utility {
                         .placeholder(placeHolder)
                         .error(placeHolder)
                         .fit().centerCrop()
-                        .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                      /*  .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)*/
                         .into(image)
                 } else {
                     Picasso.get().load(File(aURL))
                         .placeholder(placeHolder)
                         .error(placeHolder)
                         .fit().centerCrop()
-                        .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                        /*.networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)*/
                         .into(image)
                 }
             }
