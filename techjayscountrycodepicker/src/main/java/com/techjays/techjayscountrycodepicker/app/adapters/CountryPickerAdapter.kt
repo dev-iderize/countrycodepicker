@@ -14,6 +14,8 @@ import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 import com.techjays.techjayscountrycodepicker.databinding.InflateCountryItemBinding
 import com.techjays.techjayscountrycodepicker.util.Utility
 import okhttp3.internal.Util
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CountryPickerAdapter(
     private val mContext: CountryPickerDialog,
@@ -36,7 +38,9 @@ class CountryPickerAdapter(
         holder.mBinding.name.text = eachListData.mName
         holder.mBinding.code.text = eachListData.mCountryCode
         val image =
-            "https://force-field-dev.s3.amazonaws.com/country-flags/png_small/${eachListData.mShortcode.toLowerCase()}.png"
+            "https://force-field-dev.s3.amazonaws.com/country-flags/png_small/${eachListData.mShortcode.lowercase(
+                Locale.getDefault()
+            )}.png"
         //val smallImage=mContext.getString(R.string.)
         Utility.loadUserImage(
             image,
