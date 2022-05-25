@@ -72,7 +72,7 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
     }
 
     override fun getTheme(): Int {
-        return R.style.DialogStyle
+        return R.style.DialogStyleCountryPicker
     }
 
     override fun onPause() {

@@ -13,7 +13,7 @@
         <item name="android:textColor">@color/text_gray</item>
         <item name="android:textSize">18sp</item>
     </style>
-    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="DialogStyleCountryPicker" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
