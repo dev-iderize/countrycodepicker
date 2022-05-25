@@ -16,14 +16,12 @@ class CountryPickerDialogHandler(private val mContext: CountryPickerDialog) : Re
 
     fun getCountryCode() {
         AppServices.getCountryData(mContext.requireContext(), this)
-        AppDialogs.showProgressDialog(mContext.requireContext())
     }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onResponse(r: Response?) {
 
         if (r != null) {
-            AppDialogs.hideProgressDialog()
             if (r.requestType == AppServices.API.getcountrycode.hashCode()) {
                 if (r.responseStatus!!) {
                     val data = (r as CountryCode)
