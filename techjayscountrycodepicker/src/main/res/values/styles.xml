@@ -17,7 +17,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="behavior_draggable">false</item>
+        <item name="behavior_draggable">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:colorBackground">@android:color/transparent</item>
