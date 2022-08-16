@@ -1,8 +1,7 @@
 package com.techjays.techjayscountrycodepicker.app.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.techjays.techjayscountrycodepicker.R
 import com.techjays.techjayscountrycodepicker.app.CountryCodeLibrary
 import com.techjays.techjayscountrycodepicker.app.dialog.CountryPickerDialog
@@ -19,9 +18,9 @@ class CountryPickerActivity : AppCompatActivity() {
         CountryCodeLibrary.instance.baseUrl = baseUrl!!
         openCountryDialog(baseUrl)
     }
-    private fun openCountryDialog(url:String) {
 
-        val dialogFragment = CountryPickerDialog.newInstance( url)
+    private fun openCountryDialog(url: String) {
+        val dialogFragment = CountryPickerDialog.newInstance(url, this)
         dialogFragment.show(
             this.supportFragmentManager,
             "Country Picker dialog"

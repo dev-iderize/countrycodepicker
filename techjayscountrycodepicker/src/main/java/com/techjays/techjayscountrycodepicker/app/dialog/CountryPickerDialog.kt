@@ -1,9 +1,8 @@
 package com.techjays.techjayscountrycodepicker.app.dialog
 
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +10,12 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.techjays.techjayscountrycodepicker.R
-import com.techjays.techjayscountrycodepicker.api.AppServices
-import com.techjays.techjayscountrycodepicker.api.Response
-import com.techjays.techjayscountrycodepicker.api.ResponseListener
 import com.techjays.techjayscountrycodepicker.app.CountryCodeLibrary
-import com.techjays.techjayscountrycodepicker.app.adapters.CountryPickerAdapter
 import com.techjays.techjayscountrycodepicker.app.handler.CountryPickerDialogHandler
-import com.techjays.techjayscountrycodepicker.app.models.CountryCode
 import com.techjays.techjayscountrycodepicker.databinding.DialogCountrypickerBinding
 
 @Suppress("DEPRECATION")
@@ -33,7 +25,8 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
         var mBaseUrl: String = ""
 
         fun newInstance(
-            urlString: String
+            urlString: String,
+            mContext: Context
         ): CountryPickerDialog {
             mBaseUrl = urlString
             return CountryPickerDialog()
