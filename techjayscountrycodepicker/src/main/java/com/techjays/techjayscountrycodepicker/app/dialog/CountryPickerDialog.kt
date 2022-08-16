@@ -23,12 +23,14 @@ class CountryPickerDialog : BottomSheetDialogFragment() {
     companion object {
         var TAG: String = CountryPickerDialog::class.java.simpleName
         var mBaseUrl: String = ""
+        private lateinit var mContext: Context
 
         fun newInstance(
             urlString: String,
-            mContext: Context
+            aContext: Context
         ): CountryPickerDialog {
             mBaseUrl = urlString
+            mContext = aContext
             return CountryPickerDialog()
         }
     }

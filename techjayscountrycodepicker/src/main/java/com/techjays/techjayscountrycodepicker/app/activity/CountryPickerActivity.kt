@@ -1,6 +1,7 @@
 package com.techjays.techjayscountrycodepicker.app.activity
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.techjays.techjayscountrycodepicker.R
 import com.techjays.techjayscountrycodepicker.app.CountryCodeLibrary
@@ -16,7 +17,12 @@ class CountryPickerActivity : AppCompatActivity() {
     private fun initView() {
         val baseUrl = intent.getStringExtra("base_url")
         CountryCodeLibrary.instance.baseUrl = baseUrl!!
-        openCountryDialog(baseUrl)
+
+        val button:TextView=findViewById(R.id.kakkaka)
+        button.setOnClickListener {
+            openCountryDialog(baseUrl)
+        }
+
     }
 
     private fun openCountryDialog(url: String) {
